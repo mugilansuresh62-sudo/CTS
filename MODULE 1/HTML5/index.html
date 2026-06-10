@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Task 1 : Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Community Event Portal</title>
+
+    <!-- Internal CSS -->
+    <style>
+
+        /* Task 3 : Welcome Banner */
+
+        #welcomeBanner{
+            background-color: blue;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .highlight{
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        /* Task 4 : Image Styling */
+
+        .galleryImage{
+            width: 200px;
+            height: 150px;
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+
+        /* Task 5 : Form Styling */
+
+        form{
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+
+        input,
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button{
+            margin-top: 15px;
+            padding: 10px 20px;
+        }
+
+    </style>
+
+</head>
+
+<body onbeforeunload="return warningMessage()">
+
+    <!-- ========================= -->
+    <!-- Task 2 : Navigation -->
+    <!-- ========================= -->
+
+    <nav>
+
+        <a href="#home">Home</a> |
+        <a href="#events">Events</a> |
+        <a href="#contact">Contact</a> |
+        <a href="help.html" target="_blank">Help</a>
+
+    </nav>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 3 : Welcome Banner -->
+    <!-- ========================= -->
+
+    <div id="welcomeBanner">
+
+        <h1>Welcome to Community Event Portal</h1>
+
+        <p>
+            Special Offer :
+            <span style="color:red; font-weight:bold;">
+                Free Entry for First 50 Users
+            </span>
+        </p>
+
+        <p class="highlight">
+            Register today and enjoy exciting events.
+        </p>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Task 2 : Home Section -->
+    <!-- ========================= -->
+
+    <section id="home">
+
+        <h2>Home</h2>
+
+        <p>
+            This portal helps residents register for events
+            and access community services.
+        </p>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 4 : Image Gallery -->
+    <!-- ========================= -->
+
+    <section id="events">
+
+        <h2>Community Event Gallery</h2>
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+
+                <td>
+                    <img src="music.jpg"
+                        alt="Music Event"
+                        title="Music Event"
+                        class="galleryImage">
+
+                    <p>Music Festival</p>
+                </td>
+
+                <td>
+                    <img src="food.jpg"
+                        alt="Food Event"
+                        title="Food Event"
+                        class="galleryImage">
+
+                    <p>Food Carnival</p>
+                </td>
+
+                <td>
+                    <img src="sports.webp"
+                        alt="Sports Event"
+                        title="Sports Event"
+                        class="galleryImage">
+
+                    <p>Sports Day</p>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="dance.jpg"
+                        alt="Dance Event"
+                        title="Dance Event"
+                        class="galleryImage">
+
+                    <p>Dance Program</p>
+                </td>
+
+                <td>
+                    <img src="art.jpg"
+                        alt="Art Event"
+                        title="Art Event"
+                        class="galleryImage">
+
+                    <p>Art Exhibition</p>
+                </td>
+
+                <td>
+                    <img src="community.webp"
+                        alt="Community meeting"
+                        title="Community meeting"
+                        class="galleryImage">
+
+                    <p>Community meeting</p>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 5 : Registration Form -->
+    <!-- ========================= -->
+
+    <section>
+
+        <h2>Event Registration Form</h2>
+
+        <form onsubmit="showOutput(); return false;">
+
+            <input type="text"
+                placeholder="Enter Name"
+                required
+                autofocus>
+
+            <input type="email"
+                placeholder="Enter Email"
+                required>
+
+            <input type="date" required>
+
+            <select id="eventType">
+
+                <option>Music Event</option>
+                <option>Food Festival</option>
+                <option>Sports Event</option>
+
+            </select>
+
+            <textarea
+                placeholder="Enter Message"></textarea>
+
+            <button type="submit">
+                Register
+            </button>
+
+            <br><br>
+
+            <output id="outputMessage"></output>
+
+        </form>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 6 : Event Handling -->
+    <!-- ========================= -->
+
+    <section>
+
+        <h2>Event Feedback</h2>
+
+        <!-- onblur -->
+
+        <input type="text"
+            id="phone"
+            placeholder="Enter Phone Number"
+            onblur="validatePhone()">
+
+        <p id="phoneMsg"></p>
+
+        <br>
+
+        <!-- onchange -->
+
+        <select onchange="showFee(this.value)">
+
+            <option value="">Select Event</option>
+            <option value="100">Music Event</option>
+            <option value="150">Food Festival</option>
+            <option value="200">Sports Event</option>
+
+        </select>
+
+        <p id="fee"></p>
+
+        <!-- onclick -->
+
+        <button onclick="confirmSubmit()">
+            Submit Feedback
+        </button>
+
+        <br><br>
+
+        <!-- ondblclick -->
+
+        <img src="event.jpg"
+            id="eventImage"
+            ondblclick="enlargeImage()"
+            style="border:2px solid black;">
+
+        <br><br>
+
+        <!-- keyboard event -->
+
+        <textarea id="feedback"
+            onkeyup="countCharacters()"
+            placeholder="Enter Feedback"></textarea>
+
+        <p>
+            Characters :
+            <span id="charCount">0</span>
+        </p>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 7 : Video -->
+    <!-- ========================= -->
+
+    <section>
+
+        <h2>Event Promo Video</h2>
+
+        <video width="400"
+            controls
+            oncanplay="videoReady()">
+
+            <source
+                src="event.mp4"
+                type="video/mp4">
+
+        </video>
+
+        <p id="videoMsg"></p>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 8 : Storage -->
+    <!-- ========================= -->
+
+    <section>
+
+        <h2>Save User Preference</h2>
+
+        <select id="preference">
+
+            <option>Music Event</option>
+            <option>Food Festival</option>
+            <option>Sports Event</option>
+
+        </select>
+
+        <button onclick="savePreference()">
+            Save Preference
+        </button>
+
+        <button onclick="clearPreference()">
+            Clear Preferences
+        </button>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Task 9 : Geolocation -->
+    <!-- ========================= -->
+
+    <section id="contact">
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Local Community Event Portal
+        </p>
+
+    </footer>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script>
+
+        /* Task 5 : Output Message */
+
+        function showOutput(){
+
+            document.getElementById("outputMessage")
+            .innerHTML =
+            "Registration Successful!";
+        }
+
+        /* Task 6 : Phone Validation */
+
+        function validatePhone(){
+
+            let phone =
+            document.getElementById("phone").value;
+
+            if(phone.length != 10){
+
+                document.getElementById("phoneMsg")
+                .innerHTML =
+                "Invalid Phone Number";
+            }
+            else{
+
+                document.getElementById("phoneMsg")
+                .innerHTML =
+                "Valid Phone Number";
+            }
+        }
+
+        /* Task 6 : Show Fee */
+
+        function showFee(value){
+
+            document.getElementById("fee")
+            .innerHTML =
+            "Event Fee : ₹" + value;
+        }
+
+        /* Task 6 : Click Event */
+
+        function confirmSubmit(){
+
+            alert("Feedback Submitted");
+        }
+
+        /* Task 6 : Double Click */
+
+        function enlargeImage(){
+
+            document.getElementById("eventImage")
+            .style.width = "400px";
+        }
+
+        /* Task 6 : Keyboard Event */
+
+        function countCharacters(){
+
+            let text =
+            document.getElementById("feedback").value;
+
+            document.getElementById("charCount")
+            .innerHTML = text.length;
+        }
+
+        /* Task 7 : Video Event */
+
+        function videoReady(){
+
+            document.getElementById("videoMsg")
+            .innerHTML =
+            "Video ready to play";
+        }
+
+        /* Task 7 : Before Unload */
+
+        function warningMessage(){
+
+            return "Form is not completed.";
+        }
+
+        /* Task 8 : Local Storage */
+
+        function savePreference(){
+
+            let preference =
+            document.getElementById("preference").value;
+
+            localStorage.setItem(
+                "eventPreference",
+                preference
+            );
+
+            sessionStorage.setItem(
+                "sessionPreference",
+                preference
+            );
+
+            alert("Preference Saved");
+        }
+
+        window.onload = function(){
+
+            let saved =
+            localStorage.getItem("eventPreference");
+
+            if(saved){
+
+                document.getElementById("preference")
+                .value = saved;
+            }
+        }
+
+        function clearPreference(){
+
+            localStorage.clear();
+
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+        }
+
+        /* Task 9 : Geolocation */
+
+        function findLocation(){
+
+            if(navigator.geolocation){
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+
+                    showError,
+
+                    {
+                        enableHighAccuracy:true,
+                        timeout:5000
+                    }
+                );
+            }
+        }
+
+        function showPosition(position){
+
+            document.getElementById("location")
+            .innerHTML =
+            "Latitude : " +
+            position.coords.latitude +
+            "<br>Longitude : " +
+            position.coords.longitude;
+        }
+
+        function showError(error){
+
+            if(error.code == 1){
+
+                alert("Permission Denied");
+            }
+
+            else if(error.code == 3){
+
+                alert("Request Timeout");
+            }
+        }
+
+        /* Task 10 : Console */
+
+        console.log("Portal Loaded Successfully");
+
+    </script>
+
+</body>
+
+</html>
