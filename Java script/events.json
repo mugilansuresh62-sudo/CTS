@@ -1,0 +1,25 @@
+[
+{
+"name":"Music Fest",
+"category":"Music",
+"location":"Chennai",
+"date":"2027-01-10",
+"seats":20
+},
+
+{
+"name":"Football Match",
+"category":"Sports",
+"location":"Coimbatore",
+"date":"2027-02-15",
+"seats":10
+},
+
+{
+"name":"Baking Workshop",
+"category":"Workshop",
+"location":"Madurai",
+"date":"2027-03-20",
+"seats":15
+}
+]

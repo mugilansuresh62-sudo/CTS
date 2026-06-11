@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Local Community Event Portal</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<h1>Local Community Event Portal</h1>
+
+<div class="controls">
+
+<select id="categoryFilter">
+
+<option value="All">All Categories</option>
+<option value="Music">Music</option>
+<option value="Sports">Sports</option>
+<option value="Workshop">Workshop</option>
+
+</select>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search Event">
+
+</div>
+
+<div id="loading">
+Loading Events...
+</div>
+
+<div id="eventContainer"></div>
+
+<hr>
+
+<h2>Register For Event</h2>
+
+<form id="registrationForm">
+
+<input
+type="text"
+name="name"
+placeholder="Enter Name">
+
+<input
+type="email"
+name="email"
+placeholder="Enter Email">
+
+<select name="event">
+
+<option>Music Fest</option>
+<option>Football Match</option>
+<option>Baking Workshop</option>
+
+</select>
+
+<button id="registerBtn">
+Register
+</button>
+
+</form>
+
+<p id="message"></p>
+
+<script src="main.js"></script>
+
+</body>
+
+</html>
